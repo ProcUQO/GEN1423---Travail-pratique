@@ -1,10 +1,7 @@
 import cv2
 import os
 
-# Get the directory in which this script resides
 current_dir = os.path.dirname(__file__)
-
-# Navigate one level up, then into "data", and use "Test Image.png"
 image_path = os.path.join(current_dir, '..', 'data', 'Test Image.png')
 
 image = cv2.imread(image_path)
