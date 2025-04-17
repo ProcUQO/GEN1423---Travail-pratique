@@ -23,7 +23,7 @@ def main():
     print("Texte extrait de l'image :\n", texte_image)
     
     # Extraction de texte et d'images du PDF avec PyMuPDF
-    print("Analyse du fichier PDF avec PyMuPDF...")
+    print("Analyse du fichier PDF avec PyMuPDF..")
     analyser_pdf(pdf_path)
     
 if __name__ == "__main__":
