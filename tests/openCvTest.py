@@ -1,20 +1,17 @@
-import cv2
+# tests/openCvTest.py
+import unittest
 import os
+from src.OpenCv.image_processor import traiter_image
 
-current_dir = os.path.dirname(__file__)
-image_path = os.path.join(current_dir, '..', 'data', 'Test Image.png')
+class TestTraitementImage(unittest.TestCase):
+    def test_traitement_image(self):
+        # Définir le chemin de l'image
+        current_dir = os.path.dirname(__file__)
+        image_path = os.path.join(current_dir, '..', 'data', 'Test Image.png')  # Chemin relatif vers l'image
+        
+        # Tester la fonction de traitement d'image
+        image_seuillee = traiter_image(image_path)
+        self.assertIsNotNone(image_seuillee)  # Vérifie que l'image a été traitée
 
-image = cv2.imread(image_path)
-if image is None:
-    print(f"Error: Unable to load image from {image_path}")
-    exit(1)
-
-gray_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-_, thresholded_image = cv2.threshold(gray_image, 127, 255, cv2.THRESH_BINARY)
-
-cv2.imshow('Original Image', image)
-cv2.imshow('Grayscale Image', gray_image)
-cv2.imshow('Thresholded Image', thresholded_image)
-
-cv2.waitKey(0)
-cv2.destroyAllWindows()
+if __name__ == "__main__":
+    unittest.main()
