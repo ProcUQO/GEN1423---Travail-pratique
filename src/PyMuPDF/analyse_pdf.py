@@ -62,7 +62,7 @@ def vider_dossier_test(dossier):
         os.makedirs(dossier)
 
 def analyser_pdf(pdf_path):
-    print(f"Analyse du fichier : {pdf_path}")
+    #print(f"Analyse du fichier : {pdf_path}")
 
     # On définit le répertoire de sortie. Le dossier est temporaire (pour le test), à modifier.
     dossier_output = os.path.join("tests", "extraction_test")
@@ -77,12 +77,7 @@ def analyser_pdf(pdf_path):
         "images": images
     }
 
-    # On sauvegarde le JSON dans le même dossier
-    output_json = os.path.join(dossier_output, os.path.splitext(os.path.basename(pdf_path))[0] + "_extrait.json")
-    with open(output_json, "w", encoding="utf-8") as f:
-        json.dump(resultats, f, indent=4, ensure_ascii=False)
-
-    print(f"Extraction terminée. Résultats enregistrés dans {output_json}")
+    return resultats
 
 
 # Fonction de test. Je le laisse en commentaire comme exemple, fait la même chose que test_extraction. Si ça gosse, on peut le supprimer.
