@@ -22,9 +22,6 @@ def extract_text_from_image(image_path):
         print(f"[Erreur OCR] {e}")
         return ""
 
-
-from src.ocr.ocr_processor import extract_text_from_image
-
 """
 if __name__ == "__main__":
     text = extract_text_from_image("data/example_image.png")
